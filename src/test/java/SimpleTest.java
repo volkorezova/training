@@ -14,9 +14,6 @@ public class SimpleTest {
     void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
-//        WebDriverManager.firefoxdriver().setup();
-//        driver = new FirefoxDriver();
     }
 
     @AfterEach
