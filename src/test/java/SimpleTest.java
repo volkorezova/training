@@ -1,10 +1,12 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.util.Locale;
 
 public class SimpleTest {
@@ -13,7 +15,19 @@ public class SimpleTest {
     @BeforeEach
     void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
+        //adding capabilities for chrome driver
+        ChromeOptions opts = new ChromeOptions();
+        opts.setCapability("acceptInsecureCerts", true);
+
+        //usage Command Line Arguments (Options) for start chrome
+        opts.addArguments("start-fullscreen");
+        //opts.addArguments("start-maximized");
+        opts.setExperimentalOption("w3c",false);//switch to JSON wire protocol
+
+        driver = new ChromeDriver(opts);
+
+        System.out.println(((HasCapabilities) driver).getCapabilities());
     }
 
     @AfterEach
@@ -37,7 +51,7 @@ public class SimpleTest {
 //    static void shutDown(){
 //        System.out.println("Finished");
 //    }
-//
+
 //    @Test
 //    void firstTest(){
 //        System.out.println("Hello");
@@ -46,24 +60,10 @@ public class SimpleTest {
 //                5
 //        );
 //    }
-//
+
 //    @Test
 //    void firstTest1(){
 //        System.out.println("Hello1");
 //    }
 //
-//    @Test
-//    void firstTest2(){
-//        System.out.println("Hello2");
-//    }
-//
-//    @Test
-//    void firstTest3(){
-//        System.out.println("Hello3");
-//    }
-//
-//    @Test
-//    void firstTest4(){
-//        System.out.println("Hello4");
-//    }
 }
