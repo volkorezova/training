@@ -39,7 +39,7 @@ public class FindElementsTest {
         //$x("//*[@id='box-recently-viewed-products']/div/div[2]/a/img")
 
         //---Popular Products - green duck
-        //$$("section#box-popular-products.box a.link[href='http://158.101.173.161/rubber-ducks-c-1/subcategory-c-2/green-duck-p-2']")
+        //$$(section[@id='box-popular-products']//a[@title='Green Duck'])
         //$x("//*[@id='box-popular-products']/div/article[2]/a/div[1]/img")
 
 
@@ -56,7 +56,7 @@ public class FindElementsTest {
         //$x("//*[@id='default-menu']/ul[2]/li[2]/ul/li[1]/form/div[2]/div/input")
 
         //New customers click here
-        //$$("li.account.dropdown.open ul.dropdown-menu li.text-center a[href='http://158.101.173.161/create_account']")
+        //$$("li.account.dropdown.open ul.dropdown-menu li.text-center a[href$='account']")
         //$x("//*[@id='default-menu']/ul[2]/li[2]/ul/li[2]/a")
     }
 }
